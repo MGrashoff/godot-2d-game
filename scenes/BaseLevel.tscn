@@ -32,7 +32,7 @@ tile_set = ExtResource( 1 )
 cell_size = Vector2( 18, 18 )
 format = 1
 
-[node name="DevorativeTileMap" type="TileMap" parent="."]
+[node name="DecorativeTileMap" type="TileMap" parent="."]
 position = Vector2( -169, 9 )
 tile_set = ExtResource( 8 )
 cell_size = Vector2( 18, 18 )

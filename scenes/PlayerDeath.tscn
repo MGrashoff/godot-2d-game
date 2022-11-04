@@ -1,8 +1,29 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=33 format=2]
 
 [ext_resource path="res://scenes/PlayerDeath.gd" type="Script" id=1]
 [ext_resource path="res://assets/player/character_0000.png" type="Texture" id=2]
 [ext_resource path="res://assets/effects/particles.png" type="Texture" id=3]
+[ext_resource path="res://assets/sounds/footstep_snow_001.ogg" type="AudioStream" id=4]
+[ext_resource path="res://assets/sounds/footstep_snow_003.ogg" type="AudioStream" id=5]
+[ext_resource path="res://assets/sounds/footstep_snow_004.ogg" type="AudioStream" id=6]
+[ext_resource path="res://assets/sounds/footstep_snow_002.ogg" type="AudioStream" id=7]
+[ext_resource path="res://assets/sounds/impactSoft_medium_004.ogg" type="AudioStream" id=8]
+[ext_resource path="res://assets/sounds/impactSoft_medium_002.ogg" type="AudioStream" id=9]
+[ext_resource path="res://assets/sounds/impactSoft_medium_003.ogg" type="AudioStream" id=10]
+[ext_resource path="res://assets/sounds/impactSoft_medium_001.ogg" type="AudioStream" id=11]
+[ext_resource path="res://assets/sounds/impactSoft_heavy_004.ogg" type="AudioStream" id=12]
+[ext_resource path="res://assets/sounds/impactSoft_medium_000.ogg" type="AudioStream" id=13]
+[ext_resource path="res://assets/sounds/impactSoft_heavy_001.ogg" type="AudioStream" id=14]
+[ext_resource path="res://assets/sounds/impactSoft_heavy_002.ogg" type="AudioStream" id=15]
+[ext_resource path="res://assets/sounds/impactSoft_heavy_000.ogg" type="AudioStream" id=16]
+[ext_resource path="res://assets/sounds/impactSoft_heavy_003.ogg" type="AudioStream" id=17]
+[ext_resource path="res://scenes/Util/RandomAudioStreamPlayer.tscn" type="PackedScene" id=18]
+[ext_resource path="res://assets/sounds/footstep_snow_000.ogg" type="AudioStream" id=19]
+[ext_resource path="res://assets/sounds/footstep_carpet_000.ogg" type="AudioStream" id=20]
+[ext_resource path="res://assets/sounds/footstep_carpet_001.ogg" type="AudioStream" id=21]
+[ext_resource path="res://assets/sounds/footstep_carpet_002.ogg" type="AudioStream" id=22]
+[ext_resource path="res://assets/sounds/footstep_carpet_003.ogg" type="AudioStream" id=23]
+[ext_resource path="res://assets/sounds/footstep_carpet_004.ogg" type="AudioStream" id=24]
 
 [sub_resource type="Animation" id=2]
 resource_name = "Death"
@@ -83,6 +104,20 @@ tracks/5/keys = {
 "method": "remove_from_group"
 } ]
 }
+tracks/6/type = "method"
+tracks/6/path = NodePath("DeathSoundPlayer4")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"times": PoolRealArray( 0.6 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "play"
+} ]
+}
 
 [sub_resource type="CanvasItemMaterial" id=3]
 particles_animation = true
@@ -135,12 +170,108 @@ script = ExtResource( 1 )
 autoplay = "Death"
 anims/Death = SubResource( 2 )
 
+[node name="DeathSoundPlayer1" parent="." instance=ExtResource( 18 )]
+numberToPlay = 1
+minPitchScale = 0.8
+maxPitchScale = 1.0
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="DeathSoundPlayer1"]
+stream = ExtResource( 16 )
+bus = "SFX"
+
+[node name="AudioStreamPlayer2" type="AudioStreamPlayer" parent="DeathSoundPlayer1"]
+stream = ExtResource( 14 )
+bus = "SFX"
+
+[node name="AudioStreamPlayer3" type="AudioStreamPlayer" parent="DeathSoundPlayer1"]
+stream = ExtResource( 15 )
+bus = "SFX"
+
+[node name="AudioStreamPlayer4" type="AudioStreamPlayer" parent="DeathSoundPlayer1"]
+stream = ExtResource( 17 )
+bus = "SFX"
+
+[node name="AudioStreamPlayer5" type="AudioStreamPlayer" parent="DeathSoundPlayer1"]
+stream = ExtResource( 12 )
+bus = "SFX"
+
+[node name="DeathSoundPlayer2" parent="." instance=ExtResource( 18 )]
+numberToPlay = 1
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="DeathSoundPlayer2"]
+stream = ExtResource( 13 )
+bus = "SFX"
+
+[node name="AudioStreamPlayer2" type="AudioStreamPlayer" parent="DeathSoundPlayer2"]
+stream = ExtResource( 11 )
+bus = "SFX"
+
+[node name="AudioStreamPlayer3" type="AudioStreamPlayer" parent="DeathSoundPlayer2"]
+stream = ExtResource( 9 )
+bus = "SFX"
+
+[node name="AudioStreamPlayer4" type="AudioStreamPlayer" parent="DeathSoundPlayer2"]
+stream = ExtResource( 10 )
+bus = "SFX"
+
+[node name="AudioStreamPlayer5" type="AudioStreamPlayer" parent="DeathSoundPlayer2"]
+stream = ExtResource( 8 )
+bus = "SFX"
+
+[node name="DeathSoundPlayer3" parent="." instance=ExtResource( 18 )]
+numberToPlay = 1
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="DeathSoundPlayer3"]
+stream = ExtResource( 19 )
+volume_db = -5.0
+bus = "SFX"
+
+[node name="AudioStreamPlayer2" type="AudioStreamPlayer" parent="DeathSoundPlayer3"]
+stream = ExtResource( 4 )
+volume_db = -5.0
+bus = "SFX"
+
+[node name="AudioStreamPlayer3" type="AudioStreamPlayer" parent="DeathSoundPlayer3"]
+stream = ExtResource( 7 )
+volume_db = -5.0
+bus = "SFX"
+
+[node name="AudioStreamPlayer4" type="AudioStreamPlayer" parent="DeathSoundPlayer3"]
+stream = ExtResource( 5 )
+volume_db = -5.0
+bus = "SFX"
+
+[node name="AudioStreamPlayer5" type="AudioStreamPlayer" parent="DeathSoundPlayer3"]
+stream = ExtResource( 6 )
+volume_db = -5.0
+bus = "SFX"
+
+[node name="DeathSoundPlayer4" parent="." instance=ExtResource( 18 )]
+numberToPlay = 1
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="DeathSoundPlayer4"]
+stream = ExtResource( 20 )
+bus = "PlayerDeath"
+
+[node name="AudioStreamPlayer2" type="AudioStreamPlayer" parent="DeathSoundPlayer4"]
+stream = ExtResource( 21 )
+bus = "PlayerDeath"
+
+[node name="AudioStreamPlayer3" type="AudioStreamPlayer" parent="DeathSoundPlayer4"]
+stream = ExtResource( 22 )
+bus = "PlayerDeath"
+
+[node name="AudioStreamPlayer4" type="AudioStreamPlayer" parent="DeathSoundPlayer4"]
+stream = ExtResource( 23 )
+bus = "PlayerDeath"
+
+[node name="AudioStreamPlayer5" type="AudioStreamPlayer" parent="DeathSoundPlayer4"]
+stream = ExtResource( 24 )
+bus = "PlayerDeath"
+
 [node name="Visuals" type="Node2D" parent="."]
 
 [node name="Sprite" type="Sprite" parent="Visuals"]
-position = Vector2( 4, -7 )
-rotation = 1.5708
-scale = Vector2( 1e-05, 1e-05 )
 texture = ExtResource( 2 )
 offset = Vector2( 0, -12 )
 

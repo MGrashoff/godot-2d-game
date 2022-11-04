@@ -1,8 +1,19 @@
-[gd_scene load_steps=14 format=2]
+[gd_scene load_steps=25 format=2]
 
 [ext_resource path="res://scenes/Player.gd" type="Script" id=1]
 [ext_resource path="res://assets/player/character_0000.png" type="Texture" id=2]
 [ext_resource path="res://assets/player/character_0001.png" type="Texture" id=3]
+[ext_resource path="res://assets/sounds/footstep_grass_003.ogg" type="AudioStream" id=4]
+[ext_resource path="res://assets/sounds/footstep_grass_002.ogg" type="AudioStream" id=5]
+[ext_resource path="res://assets/sounds/footstep_grass_001.ogg" type="AudioStream" id=6]
+[ext_resource path="res://assets/sounds/footstep_grass_000.ogg" type="AudioStream" id=7]
+[ext_resource path="res://assets/sounds/footstep_grass_004.ogg" type="AudioStream" id=8]
+[ext_resource path="res://scenes/Util/RandomAudioStreamPlayer.tscn" type="PackedScene" id=9]
+[ext_resource path="res://assets/sounds/footstep_concrete_003.ogg" type="AudioStream" id=10]
+[ext_resource path="res://assets/sounds/footstep_concrete_004.ogg" type="AudioStream" id=11]
+[ext_resource path="res://assets/sounds/footstep_concrete_000.ogg" type="AudioStream" id=12]
+[ext_resource path="res://assets/sounds/footstep_concrete_001.ogg" type="AudioStream" id=13]
+[ext_resource path="res://assets/sounds/footstep_concrete_002.ogg" type="AudioStream" id=14]
 
 [sub_resource type="Shader" id=6]
 code = "shader_type canvas_item;
@@ -67,11 +78,64 @@ collision_layer = 0
 script = ExtResource( 1 )
 dashHazardMask = 1073741824
 
+[node name="FootstepAudioPlayer" parent="." instance=ExtResource( 9 )]
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="FootstepAudioPlayer"]
+stream = ExtResource( 7 )
+volume_db = -2.0
+bus = "Footsteps"
+
+[node name="AudioStreamPlayer2" type="AudioStreamPlayer" parent="FootstepAudioPlayer"]
+stream = ExtResource( 6 )
+volume_db = -2.0
+bus = "Footsteps"
+
+[node name="AudioStreamPlayer3" type="AudioStreamPlayer" parent="FootstepAudioPlayer"]
+stream = ExtResource( 5 )
+volume_db = -2.0
+bus = "Footsteps"
+
+[node name="AudioStreamPlayer4" type="AudioStreamPlayer" parent="FootstepAudioPlayer"]
+stream = ExtResource( 4 )
+volume_db = -2.0
+bus = "Footsteps"
+
+[node name="AudioStreamPlayer5" type="AudioStreamPlayer" parent="FootstepAudioPlayer"]
+stream = ExtResource( 8 )
+volume_db = -2.0
+bus = "Footsteps"
+
+[node name="AudioStreamPlayer6" type="AudioStreamPlayer" parent="FootstepAudioPlayer"]
+stream = ExtResource( 12 )
+volume_db = -2.0
+bus = "Footsteps"
+
+[node name="AudioStreamPlayer7" type="AudioStreamPlayer" parent="FootstepAudioPlayer"]
+stream = ExtResource( 13 )
+volume_db = -2.0
+bus = "Footsteps"
+
+[node name="AudioStreamPlayer8" type="AudioStreamPlayer" parent="FootstepAudioPlayer"]
+stream = ExtResource( 14 )
+volume_db = -2.0
+bus = "Footsteps"
+
+[node name="AudioStreamPlayer9" type="AudioStreamPlayer" parent="FootstepAudioPlayer"]
+stream = ExtResource( 10 )
+volume_db = -2.0
+bus = "Footsteps"
+
+[node name="AudioStreamPlayer10" type="AudioStreamPlayer" parent="FootstepAudioPlayer"]
+stream = ExtResource( 11 )
+volume_db = -2.0
+bus = "Footsteps"
+
 [node name="CoyoteTimer" type="Timer" parent="."]
 wait_time = 0.1
 one_shot = true
 
 [node name="DashParticles" type="Particles2D" parent="."]
+visible = false
 show_behind_parent = true
 material = SubResource( 7 )
 position = Vector2( 0, -12 )
@@ -91,6 +155,7 @@ collision_mask = 2147483648
 shape = SubResource( 3 )
 
 [node name="HazardArea" type="Area2D" parent="."]
+visible = false
 collision_layer = 0
 collision_mask = 1342177280
 
@@ -105,10 +170,12 @@ playing = true
 offset = Vector2( 0, -12 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
 position = Vector2( 0, -8 )
 shape = SubResource( 1 )
 
 [node name="DashArea" type="Area2D" parent="."]
+visible = false
 position = Vector2( 0, -12 )
 collision_layer = 0
 collision_mask = 2

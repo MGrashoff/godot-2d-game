@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://scenes/BaseLevel.tscn" type="PackedScene" id=1]
 [ext_resource path="res://scenes/Enemy.tscn" type="PackedScene" id=2]
@@ -6,6 +6,7 @@
 [ext_resource path="res://scenes/EnemyGoal.tscn" type="PackedScene" id=4]
 [ext_resource path="res://scenes/Coin.tscn" type="PackedScene" id=5]
 [ext_resource path="res://scenes/EnemySpawner.tscn" type="PackedScene" id=6]
+[ext_resource path="res://scenes/TutorialSign.tscn" type="PackedScene" id=7]
 
 [node name="Level_001" instance=ExtResource( 1 )]
 
@@ -17,7 +18,11 @@ tile_data = PoolIntArray( -1703977, 0, 0, -1703976, 0, 1, -1703975, 0, 1, -17039
 position = Vector2( -169, -16 )
 tile_data = PoolIntArray( -983067, 0, 1, -917532, 0, 2, -917531, 0, 131072, -851995, 0, 131074, -851994, 0, 131075, -786459, 0, 131073, -720914, 3, 0, -655378, 3, 0, -655377, 3, 0, -655375, 3, 0 )
 
-[node name="Flag" parent="." index="5"]
+[node name="TutorialSign" parent="." index="5" instance=ExtResource( 7 )]
+position = Vector2( 72, -36 )
+text = "Use WASD or ARROW keys to move"
+
+[node name="Flag" parent="." index="6"]
 position = Vector2( -198, -306 )
 
 [node name="Enemy" parent="Enemies" index="0" instance=ExtResource( 2 )]
