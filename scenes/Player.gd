@@ -89,6 +89,7 @@ func process_normal(delta):
 	
 func process_dash(delta):
 	if (isStateNew):
+		$DashAudioPlayer.play()
 		$DashParticles.emitting = true
 		$DashArea/CollisionShape2D.disabled = false
 		$AnimatedSprite.play("jump")

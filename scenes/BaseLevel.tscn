@@ -21,19 +21,16 @@ levelCompleteScene = ExtResource( 6 )
 [node name="Clouds" parent="GameCamera" instance=ExtResource( 9 )]
 
 [node name="TileMap" type="TileMap" parent="."]
-position = Vector2( -169, 9 )
 tile_set = ExtResource( 1 )
 cell_size = Vector2( 18, 18 )
 format = 1
 
 [node name="ForegroundTileMap" type="TileMap" parent="."]
-position = Vector2( -171, 0 )
 tile_set = ExtResource( 1 )
 cell_size = Vector2( 18, 18 )
 format = 1
 
 [node name="DecorativeTileMap" type="TileMap" parent="."]
-position = Vector2( -169, 9 )
 tile_set = ExtResource( 8 )
 cell_size = Vector2( 18, 18 )
 format = 1
